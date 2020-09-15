@@ -1,0 +1,14 @@
+extends layout
+block content
+  - today=''
+  - todaydow= new Date()
+  - end=''
+  - mmdd=''
+  body()
+    - if (!apiInitialized)
+       ="api not initialized"
+    - else
+       - if (error)
+          ="request error"
+       - else
+          ="request processed"

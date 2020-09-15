@@ -1,0 +1,68 @@
+extends layout
+block content
+  - x=0
+  body()
+    script(type='text/javascript')
+      | function getURL(){
+      |   var url = location.href;
+      |   var idx = url.indexOf('?')
+      |   if (idx !== -1)
+      |      url = url.substring(0,idx);
+      |   idx = url.lastIndexOf('/');
+      |   url = url.substring(0,idx);
+      |   return url;
+      |}
+      | function updateDevices(){
+      |     window.location = getURL()+"/getdevices?redirect=/";
+      |}
+      
+    span(style='font: 13px "Open Sans", Helvetica, Arial, sans-serif;')
+      - if (!apiInitialized)
+         span(style='color: red;font-weight: bold')
+           ="API not initialized: please browse to localhost:3001 and log into Alexa"
+           p
+      - else      
+         span(style='color: #0087CC;font-weight: bold')
+            ="Alexa Speaks v1.6"
+      p
+         span(style='color: red;font-weight: bold')
+            - if (response.length > 0)
+               = response
+            - else
+               | &nbsp     
+      p
+      table
+        tr
+          td(valign="top")
+            ="Here are your Echo Devices:"
+            p
+            table
+              tr
+                th Number
+                th Name
+              each deviceName in deviceNames
+                -x++
+                tr
+                  td #{x}
+                  td #{deviceName}
+            p
+              button.button(onClick="updateDevices()") Update Device list
+          td 
+            span(style="display:block;width:100px")
+          td(valign="top")
+            ="Optional: Store Amazon Credentials"
+            p
+            form(method="POST",id="credentialForm",action="/savecredentials")
+              input(type="hidden",name="response",value="Request Processed")
+              input(type="hidden",name="redirect",value="/")
+              table
+                tr
+                  td
+                    input(type='text',name='email',id='email',value='#{username}',size=30,placeholder='Email (phone for mobile accounts)',onFocus=("document.getElementById('email').select()"))
+                tr
+                  td    
+                    input(type='password',name='password',id='password',value='#{password}',size=30,autocomplete='new-password',placeholder='Amazon password',onFocus=("document.getElementById('password').select()"))
+              p
+                button(type='submit') Submit
+              
+              

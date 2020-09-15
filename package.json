@@ -1,0 +1,63 @@
+{
+  "name": "alexa-speaks",
+  "version": "1.7.0",
+  "description": "Remote Control for amazon echo devices",
+  "author": {
+    "name": "Sleuth255",
+    "email": "kwilcox@wi.rr.com"
+  },
+  "contributors": [
+    {
+      "name": "soef",
+      "email": "soef@gmx.net"
+    },
+    {
+      "name": "Apollon77",
+      "email": "ingo@fischer-ka.de"
+    }
+  ],
+  "homepage": "https://github.com/Apollon77/alexa-remote",
+  "license": "MIT",
+  "keywords": [
+    "alexa",
+    "echo",
+    "alexa remote",
+    "layla.amazon.de"
+  ],
+  "dependencies": {
+    "alexa-remote2": "^3.3.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "cryptr": "^6.0.1",
+    "express": "^3.2.6",
+    "express3": "0.0.0",
+    "extend": "^3.0.2",
+    "http": "0.0.0",
+    "https": "^1.0.0",
+    "jade": "^1.11.0",
+    "method-override": "^3.0.0",
+    "moment": "^2.24.0",
+    "node-localstorage": "^2.1.5",
+    "path": "^0.12.7",
+    "querystring": "^0.2.0",
+    "request": "^2.88.0",
+    "routes": "^2.1.0",
+    "serve-favicon": "^2.5.0",
+    "user": "0.0.0",
+    "uuid": "^3.3.3",
+    "ws": "^7.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Apollon77/alexa-remote.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Apollon77/alexa-remote/issues"
+  },
+  "main": "app.js",
+  "readmeFilename": "readme.md"
+}
