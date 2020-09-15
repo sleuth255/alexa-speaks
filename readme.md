@@ -58,6 +58,9 @@ Thank you for that work.
 
 ## Changelog:
 
+### 1.7
+* Update alexa-remote for new Amazon proxy handshake.  Fixes "enable cookie on your browser" issue
+
 ### 1.6
 * change alexa-remote to be a dependency of apollon7/alexa-remote2.
 
