@@ -58,7 +58,7 @@ alexa.init({
         acceptLanguage: 'en-US', // optional, override Accept-Language-Header for cookie determination
         amazonPage: 'amazon.com', // optional, override Amazon-Login-Page for cookie determination and referer for requests
         useWsMqtt: false, // optional, true to use the Websocket/MQTT direct push connection
-        refreshCookieInterval: 24*60*60*1000 // optional, cookie refresh interval, set to 0 to disable refresh
+        refreshCookieInterval: 0 // optional, cookie refresh interval, set to 0 to disable refresh
     },
     function (err) {
         if (err) {
