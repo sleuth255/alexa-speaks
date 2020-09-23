@@ -126,7 +126,7 @@ app.get('/speak', function (req, res) {
 	if (who == 'all')
 		for (var x = 0 ; x < deviceNames.length; x++)
 			   alexa.sendSequenceCommand(deviceNames[x],'speak',res.locals.text,function(err){
-		    	   if (err && err.search("COnnection" != -1)){
+		    	   if (err){
 		    		   console.log("Alexa-speaks: "+err);
 		    		   res.locals.err = true;
 		    	   }
@@ -151,16 +151,22 @@ app.get('/announce', function (req, res) {
 	if (who == 'all')
 		for (var x = 0 ; x < deviceNames.length; x++)
 			   alexa.sendSequenceCommand(deviceNames[x],'announcement',res.locals.text,function(err){
-		    	   if (err)
-		    		   console.log(err);
+		    	   if (err){
+		    		   console.log("Alexa-speaks: "+err);
+		    		   res.locals.err = true;
+		    	   }
 		       });
 	else
 	   for (var x = 0 ; x < svars.length; x++)
 		      alexa.sendSequenceCommand(deviceNames[parseInt(svars[x],10)-1],'announcement',res.locals.text,function(err){
-	    	      if (err)
-	    		      console.log(err);
+		    	   if (err){
+		    		   console.log("Alexa-speaks: "+err);
+		    		   res.locals.err = true;
+		    	   }
 	          });
-    res.render('apiresponse',{apiInitialized: apiInitialized})
+    setTimeout(function(){
+	    res.render('apiresponse',{apiInitialized: apiInitialized,error: res.locals.err})
+    }, 2000);  // wait for any errors to accumulate
 })
 app.get('/', function (req, res) {
 	var response = typeof req.query.response != 'undefined' ? req.query.response : ''
