@@ -220,7 +220,8 @@ app.post('/savecredentials',function (req,res){
 	res.locals.redirect = req.body.redirect
 	return res.redirect(res.locals.redirect+'?response=Credentials Updated')
 	
-})//Start up server
+})
+//Start up server
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

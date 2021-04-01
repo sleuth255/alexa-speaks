@@ -27,7 +27,7 @@ node /alexa-speaks/app.js
 
 http://localhost:3001
 
-You will be taken to an alexa.com login page.  Log in and solve any Capcha that might be displayed.  Successful login will capture a valid session cookie for subsequent use.
+This step must be run from a browser on the same machine that node is running on.  You literally need to run the above command as shown.  You will be taken to an alexa.com login page.  Log in and solve any Capcha that might be displayed.  Successful login will capture a valid session cookie for subsequent use.
 
 ### Access the management site:
 
